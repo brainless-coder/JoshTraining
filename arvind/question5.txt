@@ -1,0 +1,5 @@
+ --force push and --force-with-lease
+ 
+ 1) git push --force-with-lease: This command will not let us push if there is any extra commit on remote branch. It ensures that we do not overwrite someone elses work by force pushing.
+ 
+ 2) git push --force: This command will forcefully push to remote branch by overriding all the changes of the remote branch. It overwrites a remote branch with our local branch.

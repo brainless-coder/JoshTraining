@@ -1,0 +1,15 @@
+multiple remote repositories for the same project
+
+we can easily create any number of remote repos for same project as per our need. Like there can be different remote repos on github, gitlab, heroku.
+
+So, we can have, lets say one remote repo for development on github and another remote repo for deployment/prod on heroku. And according to our need, we can push our code to development or production repo.
+
+
+Usage:
+
+git remote add origin github_repo_url: adding github remote repo
+git remote add heroku heroku_repo_url: adding heroku remote repo
+git remote -v: for seeing all the remote repos
+
+git push origin master: for pushing master branch to origin
+git push herkou master: for pushing master branch to heroku

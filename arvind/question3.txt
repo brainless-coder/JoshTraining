@@ -1,0 +1,12 @@
+squashing
+
+if we want to combine two or more commits into one, then we can use squashing
+ 
+git rebase -i: used for interactive rebase
+git rebase -i HEAD~n (here n denote number of commit count from head)
+git rebase -i HEAD~2: this will squash the latest 2 commits into 1
+
+
+if we have c1, c2, c3, c4 commits and we want to squash c2 and c3, then we will use:
+git rebase -i HEAD~4
+then in nano we will change the pick to squash/s for c3 to squash then into c2.
