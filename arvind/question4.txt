@@ -1,0 +1,12 @@
+delete one commit or multiple commits permanently 
+
+to delete one commit or multiple commits permanently, we use git reset command with hard flag
+
+to delete one commit:
+
+git reset --hard HEAD~1: it will remove the latest commit
+git reset --hard HEAD~n: it will remove n commits from the head(latest commit)
+	
+	
+to delete multiple commits:
+git reset --hard commit_id: it will remove all the commits upto that commit id

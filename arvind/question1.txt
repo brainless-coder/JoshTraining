@@ -1,0 +1,10 @@
+Cheery-pick
+
+Cherry picking is the act of picking a commit from a branch and applying it to another.
+
+by using cherry-picking we can pick a commit from another branch and then use it in our branch. Like if there is some feature in another branch, and we need that feature in our current branch, then we can cherry-pick that commit in our current branch.
+
+
+Usage:
+
+git cherry-pick commitID: this will cherry-pick that commit in our current branch.

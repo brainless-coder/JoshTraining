@@ -1,0 +1,10 @@
+un stage changes from the staged area
+
+we use the reset command with the soft flag for unstaging a file from staging area. By default if we dont write any flag, then it is soft flag only.
+
+
+Usage:
+
+git reset HEAD filename: this will unstage the file 
+git reset --soft HEAD~n: this will unstage n commits from the head/latest commits
+
