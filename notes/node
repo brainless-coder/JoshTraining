@@ -1,0 +1,175 @@
+
+
+PHP me directly UI se hi DB pe hi query run ho sakta hai, iska disadvantage hai, jaise ki SQL Injection. So, iske liye hi API hai apne pas
+
+UI   <=>   API   <=>  Backend
+
+So, API decide karta hai kya data send karna hai UI me aur kya nhi karna hai.
+
+REST API: yhape ek hi format me mobile, web sabme data send kar sakte hai. yha JSON format me data send hota hai.
+
+async programming: 2 async fn call hai, to dono parallel me execute hote hai, aur jo bhi pehle complete ho jaaye wo return karega.
+-> koi ek task dusre unrelated task ko block naa kaare, isliye async programming ka use karte hai apan.
+-> user ke operations ko block nhi kar sakte apan, isliye wo sab kaam async prog. ka use karte hai. eg: fule upload ho rha h, to user ki baaki chije ko apan uske liye block nhi kar sakte.
+
+
+-> Node JS is a single threaded, event driven language. It uses only single core of CPU, and give high perfomance. 
+
+
+-> express jo hai wo bas ek wrapper hai node JS ke liye, aur wo saare kaam ko aasan bna deta hai, like server setup, API calls and all.
+
+
+-> npx lets you run code built with Node.js and published through the npm registry.
+
+
+Semantic Versioning: x.y.z
+
+major.minor.patch
+^ minor and patch updates
+~ patch updates
+
+
+.emit(msg) jo hai wo msg ko broadcast karta hai, instruct karta hai jo uss listener ko call kardo  =>  trigger an event 
+.on(msg) jo haie wo listener hai, wo listen karta hai   => takes a callback, which will execute when the event is triggered.
+
+-> JS me jo events(onclick, keypress ye sab) waala kaam karte hai apan, wo kaam node me events module ke through hota hai
+
+-> humlog ek event pe multiple listeners lga sakte hai, aur jab bhi usse call karenge(emit()) to uss event ke saare listeners execute honge
+
+emit() =>  It synchronously calls every event listener in the order they were registered.
+
+on()/addListener()  => se apan listener add kar sakte ai
+off()/removeListener()  =>  se apan listners ko remove kar sakte hai
+
+
+
+-> The app.all() method allows the execution of specified request handlers on a particular path regardless of what the HTTP method of the request is
+-> We can intercept the parameters sent from requests with the app.params method. app.param() jo hai wo bas route parameters me hi lagta hai, and we can intercept it and do something if we want. Just ek middleware hai wo samajhlo
+-> app.param() and app.use() ye dono ka use apan routes ko middleware assign karne ke liye karte hai. but param is only concern with route parameters not the route itself, so we need to be aware of that difference.
+-> app.param() and app.use() ek hi file me hai, to hamesa pehle app.param() hi execute hota hai
+
+
+
+PUT vs PATCH
+-> In PUT, we send the entire object.
+-> In PATCH, we only update the filed which are required.
+
+
+-> Middlewares me apne pas req, res object aur next middleware fn aur NodeJS API ka access to hota hai, isliye middlewares ki power bahut baadh jaati hai, and apan middlewares ke saath bahut kuch kar sakte hai
+
+
+Different types of parameters in URL
+-> we can use regex also in paths
+
+1. Header Parameters: Header parameters are included in the request header. Usually, the header just includes authorization parameters that are common across all endpoints
+2. Route/path parameters:  /:id   we can access it using req.params obj
+3. Query string parameters:  ?id=1  we can access it using req.query obj
+4. Request bodies: POST req se jo apan data bhejte hai wo req.body me jaata hai
+
+
+
+.exists() bhi use karte hai apan validator me
+.withMessage() se hum apna custom error message bhi daal sakte hai
+-> sanitization isliye karte hai apan, taaki koi hamara input fields ya params me kuch script/code ya koi malicious code naa daal paaye, isliye apan alag-alag sanitization checks karte hai
+
+
+
+Stateless auth: store in client-side (JWT)
+stateful auth: store in server-side (Sessions, cookie)
+
+-> JWT is used just for authorization and not authentication.
+-> authorization se apan dekhte hai, jo iss user ke pas access hai system ka, matlab check karna jis user ne login kiya tha, whi access bhi kar rha hai
+
+-> browser jwt ko apne hisab se kaise bhi store kar sakta hai
+-> server deserialize karta hai token ko, aur uske andar se user info nikal leta hai, and agar user authorize hota hai, to server response wapas bhej dega
+
+-> server jo hai token ka pehla 2 portion ko leta hai, aur usse hash karta hai, then last waale section se match karta hai, agar match nhi hua to, server invalid bolke return kardega uss token ko
+-> secret key main hai, agar kisiko secret key mil gya to wo hamare token me changes kar sakta hai
+
+-> If the token is sent in the Authorization header, Cross-Origin Resource Sharing (CORS) won't be an issue as it doesn't use cookies.
+
+-> jwt.sign() method use karte hai apan, user ko serialize karne ke liye
+-> jwt ka fayda ye hai, ki apan alag alag server bna sakte hai, alag alag kaam ke liye, like authServer, postsServer, and all. aise me kisi server ko scale karna aasan ho jaayega.
+
+-> refresh tokens ko kisi DB ya redis cache me store kiya jata hai
+-> don’t store a JWT in local storage (or session storage). If any of the third-party scripts you include in your page is compromised, it can access all your users’ tokens. 
+-> To keep them secure, you should always store JWTs inside an httpOnly cookie. This is a special kind of cookie that’s only sent in HTTP requests to the server. It’s never accessible (both for reading or writing) from JavaScript running in the browser.
+
+
+
+
+-> force sync me pehle poora table drop hota hai, uske baad query execute hoti hai
+
+
+-> migrations are used to keep track of changes to the database.
+-> manlo agar db delete ho gya, ya fir haame db ko dusre developers ke saath share karna hai to migrations kaam me aate hai, bcoz ye poore table ko track karta hai
+
+db:migrate  => iss se up waala kaam hota hai  => migrations ko apply karne ke liye(table banane ke liye)
+
+db:migrate:undo  =>  iss se down waala command chalta hai
+-> undo jab kar rhe ho to dhyan se karo, poore code/org sabki maa chod sakta hai wo
+
+
+
+-> when we create a model, then uska migration khud hi ban jaata hai
+-> Before running the migration command, we can make changes to our User model and migration, most especially attribute.
+
+-> agar table ke structure me kuch karna hai to migrations kaam aata hai
+-> agar table ke data ke saath karna hai to seeders
+
+
+
+-> apan express ka nhi socket.io ka server use karenge, dono me thore differences hai, aur socket.io ka server use karne se chije aasan ho jaati hai
+-> socket.io me mainly saari chije events se hi hoti hai, unhe emit, broadcast, listen ye sab karna, dono client and server side me
+-> jab apan client me hai to server me code call nhi kar sakte, and agar server me hai to client me code call nhi kar sakte, isliye apne pas callbacks hote hai, apan events me callbacks pass kar sakte hai, and unhe use kar sakte h
+
+
+
+
+
+
+
+Q: jwt kaise verify karta h ki token shi hai ya tampered hai
+Q: config.js file, process.env se read nhi kar rha, console.log() me values aa rhi h, but kaam nhi ho rha
+Q: specIntern me name se search nhi ho rha
+
+
+Q: How callbacks really work
+Q: why we use arrow fns more, compared to normal fns (syntax ye sab)
+Q: slice, splice dekh, obj.assign() try kar
+why, what, when
+
+
+=> agar arrow fn se single line me return kar rhe h to, sidha return kardo, return likhne ki jaroorat nhi hoti.
+-> arrow fn jhape bhi define hai, wo whi ka this(scope) leta hai, and arrow fns pe call, apply, bind use nhi hota.
+-> call, apply, bind koi error nhi dega arrow fns me, but kaam bhi nhi karega.
+
+-> dynamic keys ko apan myObj[key]  aise access karte hai
+
+-> forEach kuch return nhi karta hai, map jo hai wo ek array return karta hai, callback ke hisab se
+
+
+undefined: API se data aaya hi nhi, ye memory nhi leta
+null: API se data aaya h, but blank hai, ye memory leta hai
+
+
+-> hamesa arrow fn ka use karo, normal fn jhase call hota hai, usme whaka this apply ho jaata hai, but arrow fn me this whika hoga jhape fn hoga(baaki langugages ki tarah)
+-> arrow fns me bydefault kuch bind nhi hota hai(this ye sab)
+-> arrow fn apne parent ka context leta hai
+-> Arrow functions establish "this" based on the scope the Arrow function is defined within.
+-> normal fn jhase call hota hai, wo whaka "this" ko leta hai
+
+
+-> A programming language is said to have First-class functions when functions in that language are treated like any other variable. 
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,76 @@
+Why vue over other frameworks??
+-> lightweight, redndering khud hi karta h, easy to learn
+
+making a project using vue-cli: vue create name
+
+-> babel.confic.js  file project config karne ke liye hota hai
+-> public folder me jo hota hai, wo webpack utilise nhi karta, islliye apan saare assets ye sab public me rakhte hai
+
+-> html, css ye sabko render karne ke liye apne ko kuch plugins chahiye, iske liye apan webpack ka use karte hai, vue me apan babel ka use karte hai
+-> project build karte time, webpack ka use hota hai
+-> JVM hota hai java ke liye, waise hi views render karne ke liye, apne pas, webpack hota hai
+-> ES6 code likhne ki jo basic practice hai, uske liye eslint ka use karte hai, taaki hum best practices ka use kaare
+
+-> main.js jo hai wo entry point hota hai apne vue applicatoin ka
+
+format for view file:
+<template>
+<script>
+<style>
+
+props: agar parent ka data child ke saath share karna hai, to apan child me ek prop bnate hai, and then uss prop ka use karke child me parent ka data access karte hai
+-> prop me humlog apan ek JSON object pass karte hai, key-val pair leta hai ye
+
+{{ isko interpolation kehte hai, yha apan JS daal sakte h }}
+
+import me apan whi name use karte hai, jo whape uska name diye hai
+
+-> vue me apan ref ka use karte hai, id ki jagah
+: ka use bind karne ke liye hota h, matlab real-time changed value usme aa jaayegi
+
+
+-> vuex is used for state management, same redux jaisa hai
+-> mounted, created, updated, destroyed aise karke apne pas hooks hai apne pas vue me
+-> vue bhi virtual DOM ke concept pe hi work karta hai
+-> yhape hotreload hota hai, aur saath me bas whi changes reflect hota hai
+-> Store me hi apan chijo ko store karte h, and whi se haame saare values milte h
+-> muttations ka kaam state ko update karne ke liye hot ah
+-> mutation me jab state update karte h, to purana state hat jaata h, and then poora nya state milta hai haame, aise state update hota hai
+-> actions jo hai wo mutation se baat karta h, sidha state se nhi
+-> mutations are synchronous, and actions can be asynchronous.
+-> data() ye sabko as a fn kyun define karte hai
+-> window jo hai wo global h, aur this bas uss chij ka context hota hai
+-> hamara jo actual state hai wo context me hota hai
+-> dispatch se ation ko call karte h, and commit se mutation ko call karte h matlab transaction ko commit karte hai
+
+
+-> agar store me kuch change karna h to directly humlog change nhi kar sakte, haame mutations ko commit karke karna parega. This ensures every state change leaves a track-able record.
+-> the reason we are committing a mutation instead of changing store.state.count directly, is because we want to explicitly track it. 
+-> Actions are triggered with the store.dispatch method.
+
+
+
+
+
+
+Q: local vs session sotrage, and when which one is used
+Q: two way binding in react and vue
+Q: what is virtual DOM, v-model
+Q: v-show dekho
+-> jab tak valid email,pwd nhi h, tabtak submit btn disabled hona chahiye
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

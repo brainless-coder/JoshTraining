@@ -1,0 +1,243 @@
+apan <span> bna sakte hai, JS se html ko polulate karne ke liye
+
+document jo hai wo poora html hi return karta hai
+DOM tree jo hota hai usme poora html ka sab content hota hai
+
+
+JS me document aur react me DOM
+
+addEventListener() se apan events daal sake hai, apne html objects pe
+
+yhape typecasting ke liye parseInt(), parseFloat() aise functions hai apne pas
+
+TypeScript: JS hi hai, bas kuch naaye features ke saath
+
+JS => interpreted language => ye looseley typed hai
+TS => compiled language => strongly typed hai
+
+TS jo hai wo JS me types(var types) add karke deta hai
+TS me haame har ek chij ki type btani parti hai
+
+
+4 Ways to Declare a JavaScript Variable:
+-> Using var, let, const
+-> Using nothing
+
+
+var waale variables ko apan redecalre bhi kar sakte hai
+-> let aur const ka block scope hota hai, and var ka poora global scope 
+-> As a general rule, always declare a variable with const unless you know that the value will change.
+
+-> yha const matlab constant value nhi, constant reference hota hai, isliye apan constant array ke elements chagne kar paate hai, and constant object ki properties bhi change kar paate hai
+-> JS jo hai wo variable ko pehle inner scope me dekhta hai, then uske baad outer scope me. 
+
+
+-> JavaScript has dynamic types. This means that the same variable can be used to hold different data types.
+
+
+Q: How query selector works?? kya return karta hai array ya object
+=> all jo hai wo array return karta hai, aur querySelector jo hai wo bas first ele ko return karta hai
+
+
+JS engine jo hai wo JS ko browser me execute karwaane ka kaam karta hai
+JS ko server me execute karwaane ke liye apan node ka use karte hai/
+Node.js is a JS runtime built on Chrome'sV8 JS engine.
+
+
+Q: explore function statement and function expression, aur hoisting ko bhi, unme ye statement and expression ko dekho
+Q: this ko func ke andar and bahar explore karo
+-> this jo hai wo curr obj ko print karta hai, where the func resides, jhape wo func hai, this uske barabar hoga
+-> this jo hai wo globally hota hai, so usse bahar me use nhi karna hota hai
+
+
+
+polyfill => kuch browsers jha ES6 execute nhi hota, to wha haame khudka def likhke use karna hota hai
+Q: bind() ka polyfill likho khudse
+=> call(), apply() ko use kar sakte ho bind banane ke liye
+func stat vs func exp
+hoisting
+call, apply, bind 
+
+
+myFunc.bind(context) to ab myFunc me wha ka context aa jaayega
+koi func kisi specific context ke saath use karna hai to bind ka use karenge apan
+-> bind always return a fn
+
+-> call, apply jo hai wo whipe call karte hai, wo store nhi karte
+
+-> call(context, setting its parameters) se apan uss fn ke parameters bhi pass kar sakte hai
+-> apply(context, [params])
+
+call me 1-1 karke parameters pass karte hai, and apply me ek aaray me pass karte hai
+
+
+JS engine jo hai program ke starting me hi saare variables ko ek memory de deta hai, isliye hoisting possible hota hai JS me
+
+
+har ek fns jo hai wo inherited hota hai, apne parent class se, isliye apan Function ke prototype me apna polyfill likhte hai
+-> this depend karta hai, who is invoking that function
+
+rest operator(...) jab arg me daalte h tab isse rest operator kehte hai, aur dusre jagah spread operator
+
+
+Q: map fn ka polyfill likho khudse
+
+
+memory allocation and actual execution
+
+sabse pehle execution context banta hai, and then uske baad actual execution start hota hai
+
+debugger likhke apan debugger lgate hai
+
+let aur const jo hai wo hoist hote hai, but jab tak wo initializze naa ho tabtak ham unhe use nhi kar sakte, bcoz wo uss time pe Temporal Dead Zone me hote hai
+-> jaise hi unhe initialize karte hai, wo TDZ
+
+arrow fn me 'this' ki value depend karti hai, where it resides, arrow fn apne parent ka this ko leta hai
+-> arrow fn ke pas khudka 'this' nhi hota hai and  'this' ko hum badal bhi nhi sakte arrow fns me
+
+
+array: find, findIndex, map, filter, reduce, includes
+
+Q: forEach me condtn match karte hi stop hoga ya nhi
+
+-> map will return a new array always
+
+
+-> backend se jo data aata hai, wo bhi ek object ke form me hi hota hai
+
+Object.values() se apke ko values mil jaayenge
+
+destructuring, freeze, keys, values, entries
+
+-> Object.freeze() jo hai wo uss object ko freeze karke read-only bna deta hai, aur ab uss object ko ab hum update nhi kar sakte
+
+Object Literal: when ur key and values are same, then we can just write that var
+let name = "PRime", age = 21;
+eg: person = {name, age};
+
+-> aise kaam karta hai Object literal
+
+`ye jo tilde sign karke karte hai, isse Template literal kehte hai`
+
+spread operator hum array and object dono me use kar sakte hai
+-> Object me spread operator se apan nya object bn sakte hai, dusre object se copy karke
+-> agar obj ya array ko copy karna ho to, apan spread operator ka use kar lete hai
+
+-> Spread operator jo hai wo hamesa `shallow copy` karta hai, matlab bas ek hi level pe copy karta hai, and aage ke level pe sidha reference le leta hai
+-> Spread operator `deep copy` nhi karta hai
+-> deep copy me har chij ko copy karta hai, shallow copy me bas ek hi level pe copy karta hai
+
+-> array destructuring me order matter karta hai, but obj destructuring me order matter nhi karta hai
+
+-> array me jo hai poora destructing hota hai, object me specific keys ko desctructure kar sakte hai
+
+
+-> rest operator jo hai wo saare elements ko ek array me daal deta hai
+-> jab pta nhi h, jo kitne args hai, tab apan rest operator ka use karte hai
+-> agar rest me koi elements nhi hote hai, tab wo ek empty array rehta hai
+
+lodash library: ye jo hai saare fns provide karti hai jo normal day to day use hota hai, like deep copy ye sab
+
+Q: Event loop
+
+
+=> 2 arrays ki jagah reduce ka use karke try karo
+
+Q: prototype inheritance padho
+
+-> prototype jo hai wo parent class hota hai sabka, usme agar kuch add kar diya to apan har jagah uska use kar sakte hai
+
+isPrototypeOf() try karo kya hai
+
+
+
+-> JS is single threaded language.
+-> callbacks ka use karke JS me asynchronous behaviour aata hai
+
+2 phase:
+-> variables and fns ko memory allocate karte hai (global exec cont(GCE))
+-> aur fir actual run karte hai sab
+
+
+-> console is a part of browser not JS, aur ye sab haame global context(window) se available hote hai, aur ye globally availabel hai, isliye window.console karke use karne ki jaroorat nhi hai
+
+
+-> async waali chije web API memory me chala jaata hai
+
+-> Event loop jo hai wo callback queue aur call stack ko dekhta hai, jo unme kuch hai ya nhi
+-> pehle call stack me GCE chalta hai, uske baad wo GCE ko pop out kar deta hai call stack se, aur ab event loop dekhta rehta hai
+-> agar callback queue me kuch aata hai to, event loop usse call stack me daal deta hai, and call stack me jaate hi uska execution context chalu ho jaata hai, aur uske baad wo bhi pop out ho jaata hai
+
+
+-> jab tak browser khula hai, tab tak event loop kaam karta rehta hai continous
+-> event loop jo hai wo bas yhi dekhta hai jo call stack khali hai ya nhi, agar khali hota hai to callback queue me usme push kar deta hai
+
+-> Browser me humlog actual call stack dekh sakte hai
+
+-> koi bhi promise jo hai wo ya to success hogi, nhi to fail hogi
+Promise ke 2 functions hote hai, ya to resolve hoga, nhi to reject hoga
+
+-> to hum JS ko promise karte hai to hum kuch kar rhe hai, ya to hum success honge nhi to fail, aur tumhe bta denge, tum apna kaam karo
+
+.then() jo hai, wo promise resolve hone ke baad execute hota hai, aur promise jo bhi return karta hai, wo haame usme availabel hota hai
+
+Q: fetch ke params me kya kya bhej sakte hai, explore karo, aur fetch se har type ka req maarke dekho
+
+-> fetch jo hai wo hamesa ek promise return karta hai, aur agar data aata hai to wo resolve hoga, nhi to reject
+
+-> jo bhi response aata hai apne ko usse haame json() me convert karna parta hai, then uske baad hi usse use kar sakte hai
+-> json() jo hai ye bhi ek promise return karti hai, aur isse bhi haame resolve karna parega
+
+ek saath 2-3 .then() lga sakte hai, to jab 1 resolve hoga tab uska data agle .then() me jaayega, aise hi hota hai kaam
+
+-> jab call stack empty hota hai, tabhi, event loop callback queue se usko uthake call stack me dalta hai, agar call stack me kuch chal rha hai to event loop call back queue se kuch nhi lega
+
+
+-> promise jo hai usko kuch na kuch time lagta hi hai, wo pending state me hi hota hai, jab JS uske pas aata hai.
+-> To JS jo hai wo .then() ko apne memory me rakhega, kyunki uss instant me promise resolve nhi hoga, bcoz JS bahut fast hai, wo wait nhi akrega itna inke liye
+
+-> asal me 2 queue hote hai memory me, callback queue aur micro task queue, aur event loop dono queue ko monitor karte rehta hai
+
+-> promise waala jo sab hota hai, wo micro task queue me jaate hai, aur timeout, interval ye sab waalw callback queue me jaate hai
+
+-> promise ye sab jitni bhi chije hoti hai, JS unhe last me hi dekhta hai
+
+-> micortask queue ki priority higher hoti hai callback queue se, isliye microtask queue ki chije pehle execute hogi, then uske baad callback queue ki chije
+
+
+Q: Starving of callback queue
+-> jab microtask queue me jo hai wo firse ek promise return karde, jo wapas microtask queue me chala jaaye to callback queue kabhi execute hi nhi hoga, aur bas microtask queue hi execute hota rahgea
+
+
+-> async fn always returns a promise, kyunki uske andar ka task async hai, aur uss instant pe wo ek promise return kardega, aur jab hum uss fn ko call karega, tab JS rukega uss task ke liye
+
+-> async fn ke andar JS rukta hai, but bahar me agar call karte hai, then wo whape nhi rukata hai
+
+-> async await kaise work karta hai, ye aache se dekho
+
+-> import-export aache se dekho JS me
+- named exports: isme sidhe export likhdo, jisse bhi export karna hai
+- default me humlog bas ek hi export kar sakte hai
+- apan named and default dono ko ek saath bhi export kar sakte hai
+- named import ke liye apan ko {} me import karna hota hai, aur default me sidhe ho jaata hai
+- named import me same name use karna hota hai, default me humlog khudse apni marji ka naam de sakte hai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

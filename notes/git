@@ -1,0 +1,72 @@
+git: vcs
+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		access token
+
+untraceked area 	staging area => ready to commit
+tracked files
+
+git commit -m "message"			-m is for msg
+
+
+git config: git ko btana parega apan kon hai, apna email daal ke, ye chij apan locally and globally dono tariek se kar sakte hai
+
+
+git log: to list all the commits, har ek commit ko ek unique ID milti hai
+
+git show id_of_commit: iss se saare changes dikh jaayenge apan ko jo bhi uss commit me hue hai
+
+git diff commitID: to diff bta dega
+
+git reset filename: move files to staging area
+git reset --soft Head~: latest commit ko staging area me daal dega
+git reset --hard Head~no_of_commoits: uss commit ko poora delete kar dega, saare changes ke saath, uss commit ke saare changes gayab ho jaayenge, agar no_of_commits specify nhi hoga to latest commit ho jaayega
+
+
+git fetch vs git pull
+
+
+head jo hai wo current branch ko point karta hai
+
+git log --all --decorate --oneline --graph: for seeing all the commits in a fancy way
+
+
+2 tyes of merge: ek sidhe ho jaayega, aur dusra waala ek commit ke saath hoga
+
+jab direct path hoga tab sidhe merge ho jaayega, and jab direct path nhi hoga tab, ek commit ke saath hoga
+
+agar main me koi commit nhi hua hai to sidhe merge ho jaayega, and agar main me aur bhi commits aa gye hai to ek commit message ke saath merge hoga wo
+
+git branch -d branch_name: for deleting a branch
+
+fast forward merge and 3-way merge
+
+apan git merge hamesa receiving branch me rehkar karte hai
+
+
+
+
+Cherry picking is the act of picking a commit from a branch and applying it to another.
+cherry pick jo hai uss se apan koi bhi commit ko uthake apne current branch me laa sakte hai, ye bhi ek merge strategy hi hai, but ye bahut hi kam scenarios me use hota hai. like agar koi feature haame ek branch se dusre branch me chahiye to apan uss commit ko cherry pick karke utha lenge.
+
+git cherry-pick commitID
+
+
+agar koi file delete kardi hai hamne, and changes ko stage nhi kiya hai, then git chekcout file_name se apan wo file ko wapas laa sakte hai
+
+
+force push bas apni hi branch me karo, agar koi shared barnch hai, jisme koi aur kaam kar rha h to usme force push mat karo
+
+
+multiple remote repo tab use karte hai apan, jab fork karte hai, fork isliye karte hai kyunki main repo me apne pas access nhi hota hai, to PR daalne ke liye haame access chhaiye. aur agar ab project ke changes haame local me chhaiye to yhape multiple remote repo kaam aate hai
+
+
+
+
+
+
+
+
+
+
+
+
+

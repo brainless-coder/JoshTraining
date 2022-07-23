@@ -1,0 +1,189 @@
+virtual DOM, reusable components in React
+
+div, ya ek khali fragment me hum apne saare tags to wrap kar sakte hai
+
+-> style me apan 2 brackets lgate hai, ek to style ka, aur ek usko object banane ke liye
+
+{ any valid JS expression }
+
+-> React.createElement se apan elements bhi bna sakte hai, these objects are called react elements. React reads these objects and uses them to construct the DOM and keep it up to date.
+
+-> Elements are what components are “made of”
+
+
+semanticUI library is used for CSS
+
+
+React Video
+
+-> ReactDOM.render() jo hai, yhi hamare app ko render karta hai poora
+-> index.js me reportWebVitals() karke ek fn hai, jis se hum perfomance measure kar sakte hai app ki apne laptop me
+
+-> if we want to return more than 1 element, then we use braces(), otherwise we dont need braces.
+-> kisi bhi ele ko apan self closing tag me daal sakte hai, ya fir 2 tags(opening and closing) dono daal sakte hai, agar tags ke beech me kuch pas karna hai to dono tags use karo, nhi to bas ek
+
+-> class in JS are the classes for OOPS, so thats why we can't use them in React, and we use className in React.
+
+-> props are properties, and they are mainly used for attributes.
+-> style me 2 bracket me se pehla JS ke liye lagta hai and dusra CSS ke liye
+
+-> functional components me apne ko React hooks ka use karna parta hai state manage karne ke liye
+
+-> class components me haame states banana parta hai
+-> agar parent se child ko kuch data pass karna hai to apan props ka use karte hai
+-> aur agar child se parent me karna hai, to lifting state ka use karte hai(state pulling up, aisa kuch kehte h isse), function ko as a prop pass karo, and then uss fn ko child component se call karlo
+-> this.setState() se state update karte hai, agar directly change karenge to state me update nhi hoga
+
+-> useState() me hamesa set waale variable ko use karte hai, state update karne ke liye, sidha variable se state update nhi karte
+
+-> local storage ko use karne ke liye useEffect ka use karte hai
+-> whenever the value changes, useEffect renders the component again.
+-> agar useEffect me setState daaldo, aur useEffect ko koi variable naa do, to wo ek infinte rendering loop me jaa sakta hai
+-> page render hone ke baad, useEffect chalta hai
+-> agar useEffect me empty array pass karenge to bas ek hi baar chalta hai wo, aur agar kuch bhi pass nhi karte hai to wo har chij ko track karta hai
+
+-> uuid jo hai ye haame ek unique id deta hai, har ek item ke liye
+
+
+
+-> reactstrap me apne ko CSS ki tension nhi leni hoti, isliye apan usse use karte hai
+-> props ko apan, HTML tags me attributes ki tarah pass karte hai
+-> Babel compiler converts JSX to React.createElement
+-> aur ab react me babel ka use nhi hota hai, pehle hota tha
+-> HMTL ke andar JS likhne ke liye {} ka use karte hai
+-> { a valid JS expression } iske andar bas expressions likh sakte hai apan, decalarations nhi like (if, loop, switch, etc)
+-> declarations jo hai wo return ke upar likhte hai sab apan
+
+-> && se agar apan multiple chije chain karte hai, to apne ko last truthy value milegi, agar sab true hai to, nhi to first falsy value milegi
+
+-> ek baar jab page render ho jaata hai, tab uske baad React app jo hai wo changes ko track nhi karta hai, so agar hum chahate hai jo hamara react app chages ko listen kaare, react app ko subscribe karna parega uss comonenet se
+-> isliye apn useState() hook ka use karte hai, wo jo hai, page pe hook kar leta hai, taaki hum uss variable ke changes ko track kar saake and uske according page me changes kar paaye
+  
+-> hook is internally just a function, if we want the component to listen to changes, then we hook into that component.
+-> isse hook isliye kehte hai, kyunki wo components ko allow karta hai, changes ko listen karne ke liye
+
+
+-> agar apan koi nya page create karte hai, to usse apan views/pages me rakhte hai
+-> aur components me wo part rakhte hai, jo khi bhi call ho sakta hai, matlab kisi bhi page se
+
+-> input field me jiska bhi name hota hai, form ke onSubmit() pe uska named entry to milega hi haame, aur saath me, ek array me saare inputs bhi mielnge
+-> agar kisi specific input ko access karna hai to usko name dedo, and then ab access karlo
+
+-> Js me jo apan querySelectors() ka use karte hai DOM manupulate karne ke liye, isse impertive coding kehte hai, ye bahut hi brute force way hai kaam karne ka, isliye apan react me iska use nhi karte hai
+-> react me querySelectors ka use karna ek aachi practice nhi hai
+-> so react me ye kaam apan states ka use karke karte hai
+
+-> components me apan wo chij daalte hai, jo har jagah reuse hota hai App me, aur views me apan apne pages ko rakhte hai
+
+-> agar hum kisi imported variable ki value change karte hai to wo hamare App ko pta nhi chalega, uske liye apan App se state/wo var ko pass kar denge, to jab wo variable change hoga to App ko useState se pta lag jaayega
+-> aur kabhi bhi prop me sidha state ko hum pass nhi karte, ye ek aachi practice nhi hai, thats why apan ek fn bnate hai, and then uss funciton state change karenge, and child me uss function ko as a prop pass karenge
+
+
+jab bhi component mount, unmount ya changes ko listen ke baad kuch side-effect de, matlab page me change kaare, to apan useEffect hook ka use karte hai
+-> jab haame aisa kuch chahiye jo page refresh pe bhi naa badle, like ek baar login kar diya to dubara refresh karne pe login naa karna paare, to aise variable ko apan local storage me store kar sakte hai
+
+-> useEffect jo hai page mount hone pe ek baar chalta hai pehle, aur uske baad to wo apna variable(dependency array) ke change hone pe chalega
+-> empty dependency array me wo tabhi run karta hai, jab page mount hota hai bas
+-> agar dependecy array hoga hi nhi, to page me kuch bhi change hone pe useEffect run karega
+
+-> useState bhi tabhi page ko re-render karta hai, jab uss variable ki value change ho, agar uss variable ki value change nhi hogi to wo fn bhi nhi chalega
+
+
+-> useReducer bhi state manage karne ke liye kaam aata hai
+-> complex states ko handle karte time apan useReducer ka use karte hai
+-> useRedcer jo hai, wo redux ke similar hai
+-> reducer me apan 2nd parameter me initialState me ek object pass karte hai
+-> apne state ko update karne ke liye apan dispatch fn ko call karte hai
+-> reducer fn jo hai wo current state ko leta hai, aur action jisse hum dispatch me pass karte hai
+-> reducer jo hai wo baad me hamara updated state ko return karta hai
+-> apan jisko bhi dispatch ke saath call karte hai, wo hamare action ke barabar set ho jaata hai, aur state me currState aa jaayegi, aur reducer jo hai wo updated state ko return karega
+-> jitne bhi varibles apan innitialValue me daalte hai wo sab state me save hote hai
+
+
+-> context API and redux ka use humlog state management ke liye use karte hai
+-> redux me apan koi initialState pass nhi karte hai, aur reducer me karte the
+
+
+Immediately invoke function:
+(() => {})()  last me call kar diya to immediately invkoe ho gya ye
+-> ye ek good practice nhi h, isse use karna, kosis karo jo ek seperate fn bnake hi karo sab kaam
+
+-> JS me apan address pass nhi kar sakte, kisi variable ka, isliye saare primitive types jo hai wo pass by value hi hote hai, and non-primitive types jo hai wo pass by reference hote hai
+
+-> hooks ko apan bas functional components ke andar hi likhte hai, and unhe andar hi use kar sakte hai, unhe functional component ke bahar define nhi kar sakte
+
+
+-> redux is a state management library, it provides centralised store, so that any of the components can directly access the data. It provides consistent data across application.
+
+-> Redux takes control of state away from React components and gives it to a centralised place called a ‘store’.
+-> agar koi bhi state me change hota hai to, wo store me jaata hai sidha, and wha se wo change communicate kar diye jaate h unn saare components ko jinhe update hona hai
+
+-> dispatch jo hai wo state ko change karne ke liye use karte hai apan
+-> In Redux, middleware provides a way to interact with actions that have been dispatched to the store before they reach the store’s reducer.
+
+
+
+
+-> usePAram karke ek hook hai, jis se apan params(:id waala) ko access kar sakte hai
+-> userData?.name  aise me wo undefined ke liye check karta hai, but ye ek aachi practice nhi hai
+-> useEffect me async/await use nhi kar sakte, bcoz humlog rendering ko nhi rok sakte, agar rendering ko rokenge to page undefined ka data ko error bta dega
+
+
+
+-> abortEarly jo hai uss se, saare errors ek saath milte hai, nhi to bas pehla hi error dega haame
+
+
+-> redux me apan middlewares ka use karte h, ye action aur store ke beech me hota hai, dekh lena dhang se, ho sakta h maine galat likha ho
+
+
+-> Jest jo hai wo ek testing framework hai JS ka, aur react testing library jo hai wo bas ek library hai, humlog inn dono ka saath me use karenge hamare components ko testing ke liye
+
+
+
+-> agar dnd use karna hai to, apne sabse highest comp ko ek provider se wrap karna parta hai
+-> Background me jo column hai, usse Board se refer kar rhe hai
+
+-> useDrag() hook ka use karte hai apan, kisi chij ko draggable banane ke liye
+-> jis bhi element ko draggable banana hai, apan usme useDrag hook ka use karte hai
+
+
+Real DOM: It represents the entire UI of the web application as a tree data structure. In simpler terms, it is a structural representation of the HTML elements of the web application.
+
+-> list me apan key ka use karte h, nhi to react confuse ho jaata h, jo list me konsa element change hua h, to wo key se identify kar lega jo konsa element change hua h, and fir usko update kar lega
+
+
+=> In summary, here’s what happens when you try to update the DOM in React:
+-> The entire virtual DOM gets updated.
+-> The virtual DOM gets compared to what it looked like before you updated it. React figures out which objects have changed.
+-> The changed objects, and the changed objects only, get updated on the real DOM.
+-> Changes on the real DOM cause the screen to change.
+
+
+-> React Router helps us to navigate between different components, aur ussi hisab se page pe wo UI render karta hai.
+-> Link to hai wo <a> tag ki tarah hai, iss se haame wo UI pe dikhta hai
+-> apan saare Route ko <Routes> ke andar rakhte hai, bina <Routes> ke apan apne Route nhi likh sakte
+
+
+-> fetch jo hai wo bas modern browsers me availabe hai, and axios ka use apan older browsers me bhi request ke liye kar sakte hai
+
+
+
+
+
+Q: switch kya h pta karo, uske andar routes likhte hai
+-> Switch ke andar apan apne saare routes likhte h, react-router v6 me ye Switch ki jagah <Routes> aa gya h ab.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
